@@ -1,0 +1,20 @@
+<div class="container text-center mt-5">
+  <h1>Color Palette Generator</h1>
+  <div class="row mt-4">
+    <div class="col-md-2" *ngFor="let color of colors">
+      <div
+        class="color-box"
+        [style.background]="color"
+        (click)="copyToClipboard(color)"
+      >
+        <span>{{ color }}</span>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary mt-4" (click)="generateRandomColors()">
+    Generate Random Colors
+  </button>
+  <button class="btn btn-secondary mt-4" (click)="fetchPaletteFromAPI()">
+    Fetch from API
+  </button>
+</div>
