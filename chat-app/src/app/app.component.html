@@ -1,0 +1,14 @@
+<div class="chat-container">
+  <h2>Real-Time Chat</h2>
+  <div class="messages">
+    <div *ngFor="let msg of messages$ | async">
+      <strong>{{ msg.user }}:</strong> {{ msg.text }}
+    </div>
+  </div>
+  <div *ngIf="(typingUsers$ | async) as typingUsers; let users">
+    <em *ngIf="users.length">{{ users.join(', ') }} is typing...</em>
+  </div>
+    
+  <input [(ngModel)]="message" placeholder="Type a message..." />
+  <button (click)="sendMessage()">Send</button>
+</div>
